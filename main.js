@@ -75,6 +75,7 @@ $(document).ready(function() {
     switch (d) {
       case 12:
         date = '2018-12-01';
+        alert('Anno finito');
         break;
       default:
         ++d;
@@ -159,6 +160,7 @@ $(document).ready(function() {
     switch (d) {
       case 1:
         date = '2018-01-01';
+        alert('Puoi navigare solo il 2018');
         break;
       default:
         --d;
