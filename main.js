@@ -183,5 +183,57 @@ $(document).ready(function() {
     for (var i = 1; i <= days; ++i) {
       $('#giorni').append('<li data-day='+ i + '>' + i + ' ' + mese + '</li>');
     }
+
+    $.ajax({
+      url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018",
+      type: "GET",
+      data: {
+        //Imposto valori interrogazione
+        'month': d - 1
+      },
+      success: function(risposta){
+        console.log(d);
+        //imposto variabile con la risposta generata
+        var festemesecorrente = risposta.response;
+        console.log(festemesecorrente);
+
+        //controllo le festività nel mese corrente
+        for (var i = 0; i < festemesecorrente.length; ++i) {
+          var nomefesta = festemesecorrente[i].name;
+          console.log(nomefesta);
+          var datafesta = festemesecorrente[i].date;
+          console.log(datafesta);
+          var dataarray = datafesta.split('-');
+          console.log(dataarray);
+          var giorno = dataarray.slice(2, 3);
+          var giornonum = parseInt(giorno);
+          console.log(giornonum);
+
+          //eseguo controllo e cambio giorno
+          $('ul li').each(function()  {
+            if ($(this).attr('data-day') == giornonum) {
+              $(this).text(nomefesta);
+              console.log($(this).text(nomefesta))
+              $(this).addClass('festa');
+            };
+          });
+
+        };
+
+        //indico il codice da clonare
+        // var codetoclone = $('#template').html();
+        //imposto funzione compilatore
+        // var template = Handlebars.compile(codetoclone);
+        //dichiaro variabile che definisce i valori da cercare per creare un giocatore
+        // var festemese;
+        //dichiaro variabile per appendere il codice generato
+        // var html;
+        // html = template(player) ;
+        // $('.container').append(html);
+      },
+      error: function(){
+        alert("Chiamata fallita!!!");
+      }
+    });
   });
 });
