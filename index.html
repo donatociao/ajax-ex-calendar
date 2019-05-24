@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Donato Calendar</title>
-</head>
-<body>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>calendar</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" charset="utf-8"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="calendar-container">
+			<div class="buttons">
+				<button id='prev' type="button" name="button"><< Precedente</button>
+				<button id='next' type="button" name="button">Successivo >></button>
+			</div>
+			<div class="calendar">
+				<h1 id='mese'></h1>
+				<ul id="giorni"></ul>
+			</div>
+		</div>
 
-  <div class="container">
-  </div>
 
+		<script src="main.js" charset="utf-8"></script>
 
-  <script id="template" type="text/x-handlebars-template">
-  </script>
-<script src="main.js" charset="utf-8"></script>
-</body>
+		<script id="template" type="text/x-handlebars-template">
+
+		</script>
+	</body>
 </html>
